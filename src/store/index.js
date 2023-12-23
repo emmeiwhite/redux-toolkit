@@ -21,8 +21,9 @@ const store = configureStore({
   },
 });
 
-console.log(songsSlice.actions); // actions should have been action creators
-console.log(songsSlice.actions.addSong()); // actions should have been action creators
+// console.log(songsSlice.actions); // actions should have been action creators
+// console.log(songsSlice.actions.addSong()); // actions should have been action creators
+// console.log(songsSlice.actions.addSong("payload string")); // actions should have been action creators
 // console.log(store.getState());
 
 // store.dispatch({
@@ -32,3 +33,5 @@ console.log(songsSlice.actions.addSong()); // actions should have been action cr
 
 // const finalState = store.getState();
 // console.log(finalState);
+
+export { store };
