@@ -1,16 +1,20 @@
 import { createRandomSong } from "../data";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addSong } from "../store"; // This is our action creator
 
 export default function SongList() {
   const dispatch = useDispatch();
   // Get list of Songs
-  const songs = [];
+  //   const songs = [];
+  const songs = useSelector((state) => {
+    return state.songs;
+  });
 
   const handleSongAdd = (song) => {
     // Here we'll use our action creator
     const action = addSong(song); // This goes as the payload!
     console.log(action);
+    dispatch(action);
   };
   return (
     <div>
