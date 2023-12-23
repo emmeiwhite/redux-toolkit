@@ -2,11 +2,12 @@ import { configureStore, createSlice } from "@reduxjs/toolkit";
 
 const songsSlice = createSlice({
   name: "song",
-  initialState: ["123", "456"],
+  initialState: [],
   reducers: {
     addSong(state, action) {
       state.push(action.payload);
     },
+
     removeSong(state, action) {
       //
     },
@@ -35,3 +36,5 @@ const store = configureStore({
 // console.log(finalState);
 
 export { store };
+//Action Creator
+export const { addSong } = songsSlice.actions;
