@@ -28,7 +28,10 @@ export default function MovieList() {
       {/* Show the Movie List Below */}
       {movies.map((movie) => {
         return (
-          <div className="movie-detail">
+          <div
+            className="movie-detail"
+            key={movie}
+          >
             <p>{movie}</p>
             <button
               className="bg-[orange] mt-2"

@@ -14,6 +14,9 @@ const songsSlice = createSlice({
       const index = state.indexOf(action.payload);
       state.splice(index, 1);
     },
+    resetSongs(state, action) {
+      return [];
+    },
   },
 });
 
@@ -31,9 +34,22 @@ const moviesSlice = createSlice({
       const index = state.indexOf(action.payload);
       state.splice(index, 1);
     },
+    reset(state, action) {
+      return [];
+    },
   },
 });
-
+/* ---
+const resetSlice = createSlice({
+  name: "reset",
+  initialState: [],
+    reducers: {
+        resetAll(state, action) {
+            
+      }
+  },
+});
+--- */
 // Our one Store
 const store = configureStore({
   // this reducer acts like a rootReducer in redux
@@ -45,5 +61,5 @@ const store = configureStore({
 
 export { store };
 //Action Creators to be used in particular component where ever required
-export const { addSong, removeSong } = songsSlice.actions;
-export const { addMovie, removeMovie } = moviesSlice.actions;
+export const { addSong, removeSong, resetSongs } = songsSlice.actions;
+export const { addMovie, removeMovie, reset } = moviesSlice.actions;
