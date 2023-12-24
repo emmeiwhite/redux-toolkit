@@ -9,7 +9,27 @@ const songsSlice = createSlice({
     },
 
     removeSong(state, action) {
-      //
+      // action.payload === string, the song we want to delete
+
+      const index = state.indexOf(action.payload);
+      state.splice(index, 1);
+    },
+  },
+});
+
+const moviesSlice = createSlice({
+  name: "movie",
+  initialState: [],
+  reducers: {
+    addMovie(state, action) {
+      state.push(action.payload);
+    },
+
+    removeMovie(state, action) {
+      // action.payload === string, the song we want to delete
+
+      const index = state.indexOf(action.payload);
+      state.splice(index, 1);
     },
   },
 });
@@ -19,22 +39,11 @@ const store = configureStore({
   // this reducer acts like a rootReducer in redux
   reducer: {
     songs: songsSlice.reducer,
+    movies: moviesSlice.reducer,
   },
 });
 
-// console.log(songsSlice.actions); // actions should have been action creators
-// console.log(songsSlice.actions.addSong()); // actions should have been action creators
-// console.log(songsSlice.actions.addSong("payload string")); // actions should have been action creators
-// console.log(store.getState());
-
-// store.dispatch({
-//   type: "song/addSong",
-//   payload: "New Song!!!",
-// });
-
-// const finalState = store.getState();
-// console.log(finalState);
-
 export { store };
-//Action Creator
-export const { addSong } = songsSlice.actions;
+//Action Creators to be used in particular component where ever required
+export const { addSong, removeSong } = songsSlice.actions;
+export const { addMovie, removeMovie } = moviesSlice.actions;

@@ -46,5 +46,6 @@ button {
 
 .movie-detail,
 .song-detail {
-  border-bottom: 1px solid #565656;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 1rem;
 }
