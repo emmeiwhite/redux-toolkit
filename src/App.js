@@ -1,14 +1,15 @@
 import MovieList from "./components/MovieList";
 import SongList from "./components/SongList";
 import { useDispatch } from "react-redux";
-import { reset, resetSongs } from "./store";
+import { reset } from "./store";
 
 function App() {
   const dispatch = useDispatch();
 
   const handleReset = () => {
     dispatch(reset());
-    dispatch(resetSongs());
+    // dispatch(resetSongs());
+    // Instead of calling both the dispatches twice we'll instead use the inbuild extraReducers and buider
   };
   // useSelector((state) => {
 

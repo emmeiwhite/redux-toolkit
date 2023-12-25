@@ -14,9 +14,12 @@ const songsSlice = createSlice({
       const index = state.indexOf(action.payload);
       state.splice(index, 1);
     },
-    resetSongs(state, action) {
+  },
+  /** This is a special  */
+  extraReducers(builder) {
+    builder.addCase("movie/reset", (state, action) => {
       return [];
-    },
+    });
   },
 });
 
@@ -34,22 +37,14 @@ const moviesSlice = createSlice({
       const index = state.indexOf(action.payload);
       state.splice(index, 1);
     },
+
+    // Here reset only resets the movies
     reset(state, action) {
       return [];
     },
   },
 });
-/* ---
-const resetSlice = createSlice({
-  name: "reset",
-  initialState: [],
-    reducers: {
-        resetAll(state, action) {
-            
-      }
-  },
-});
---- */
+
 // Our one Store
 const store = configureStore({
   // this reducer acts like a rootReducer in redux
